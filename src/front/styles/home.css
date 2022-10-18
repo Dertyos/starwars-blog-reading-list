@@ -5,3 +5,24 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+h1 {
+    color: rgb(255, 166, 0);
+    margin-left: 8%;
+    margin-top: 3rem;
+}
+.card {
+  height: 11rem;
+  width: 15rem;
+  background-color: white;
+  
+}
+
+.clase {
+    margin: 4rem;
+    background-color: rgb(14, 14, 14);
+}
+
+.escroller {
+    height: 12rem;
+}
+

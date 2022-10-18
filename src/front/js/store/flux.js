@@ -1,3 +1,7 @@
+import { personajeStore, personajeActions } from "./personajes.js";
+import { planetStore, planetActions } from "./planet.js";
+import { vehiculoStore, vehiculoActions } from "./vehiculos.js";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -13,7 +17,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			...planetStore,
+			...personajeStore,
+			...vehiculoStore,
+			favoritos: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -46,6 +54,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			...planetActions(getStore,getActions,setStore),
+			...personajeActions(getStore,getActions,setStore),
+			...vehiculoActions(getStore,getActions,setStore),
+
+			agregarFavorito: (nuevo,link,tipo) => {
+				const store = getStore();
+				let arrayAux = store.favoritos.slice()
+				arrayAux.push({name: nuevo,link:link,tipo:tipo})
+				setStore({...store, favoritos: arrayAux})
 			}
 		}
 	};

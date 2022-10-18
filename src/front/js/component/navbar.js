@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faJedi } from '@fortawesome/free-solid-svg-icons'
+import { Favoritos } from "./favoritos";
+
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+		<nav className="navbar  navbar-light bg-dark bg-opacity-75 ">
+			<div className="container-fluid">
+				<Link to="/" className=" ps-4 ms-4">					
+				<FontAwesomeIcon icon={faJedi} className="fa-2xl"/>
 				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
+				<Favoritos className="pe-5 me-5"/>
 			</div>
 		</nav>
 	);
