@@ -1,3 +1,5 @@
+import { planetActions, planetStore } from "./planet";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -12,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			...planetStore
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,7 +40,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			...planetActions(getStore,getActions,setStore)
 		}
 	};
 };
